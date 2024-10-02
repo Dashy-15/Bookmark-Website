@@ -18,9 +18,15 @@ function formSubmit(event) {
 function displayOnScreen(details) {
     const list = document.createElement("li");
     list.setAttribute("id", details._id);
-    list.appendChild(
-        document.createTextNode(`${details.title}: ${details.url}`)
-    );
+
+    list.appendChild(document.createTextNode(`${details.title}: `));
+
+    const link = document.createElement("a");
+    link.href = details.url;
+    link.target = "_blank";
+    link.textContent = `${details.url} `;
+
+    list.appendChild(link);
 
     const editBtn = document.createElement("button");
     editBtn.appendChild(document.createTextNode("Edit"));
